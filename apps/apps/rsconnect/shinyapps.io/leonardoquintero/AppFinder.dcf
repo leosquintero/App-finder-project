@@ -1,0 +1,12 @@
+name: AppFinder
+title: AppFinder
+username:
+account: leonardoquintero
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 911049
+bundleId: 2062367
+url: https://leonardoquintero.shinyapps.io/AppFinder/
+when: 1557099071.48708
+asMultiple: FALSE
+asStatic: FALSE

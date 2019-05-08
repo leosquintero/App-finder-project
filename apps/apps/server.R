@@ -22,7 +22,7 @@ shinyServer(function(input, output){
     output$Categories <- renderPrint({ input$Categories })
     
     # Data table with avgs by category selected 
-    output$hpo2 <- renderDataTable({
+    output$hpo2 <- renderTable({
         means %>%
         dplyr::filter(Category %in% input$Categories)
     
@@ -55,7 +55,7 @@ shinyServer(function(input, output){
     
     # Top 30 apps by Rating
     output$Plots <- renderPlot({
-        psa %>% 
+        means %>% 
             ggplot(aes_string(input$select, input$select2))+
             geom_point() +
             geom_smooth()
@@ -105,7 +105,8 @@ shinyServer(function(input, output){
         
     })
     output$table2 <- renderPrint({
-        summary(lm(as.formula(paste(input$selectin, "~", paste(input$selectin2,"+", "Category"))), psa, na.action = na.exclude))
+        summary(lm(as.formula(paste(input$selectin, "~", paste(input$selectin2,
+                                "+", "Category"))), psa, na.action = na.exclude))
     })
 })
     

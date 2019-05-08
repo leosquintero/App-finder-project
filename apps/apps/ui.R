@@ -99,7 +99,7 @@ shinyUI(
                                 box(selectInput("Categories", "Select a category",
                                                choices = unique(categories)), width = 4)),
                                 
-                                DT::dataTableOutput(outputId = "hpo2"), width = 12,
+                               tableOutput(outputId = "hpo2"), width = 12,
                                 DT::dataTableOutput(outputId = "hpo"), width = 12),
                       
                         
@@ -116,13 +116,13 @@ shinyUI(
                                         tabPanel("Categories bar plots", fluidRow(titlePanel("Barplots grouperd by Category")), 
                                                                                   selectInput("select4", "Select input", choices = c("Reviews", "Installs", "Rating", "Size")),
                                                  fluidRow(plotOutput("barplot"))),
-                                          tabPanel("Areas", fluidRow(titlePanel("Barplots grouperd by Category"), 
+                                          tabPanel("Areas", fluidRow(titlePanel("Area plots"), 
                                                    selectInput("select5", "Select input", choices = c("Reviews", "Installs", "Rating", "Size")),
                                                    fluidRow(plotOutput("barplot3")))))))),
                 tabItem(tabName = "tab", 
                         fluidPage(mainPanel(width = 12, 
-                                            box(selectInput("selectin", "Select dependent Variable", choices = c("Reviews", "Installs", "Rating", "Size")), 
-                                                selectInput("selectin2", "Select Independent variable", choices = c("Installs", "Reviews", "Rating", "Size"))), 
+                                            box(selectInput("selectin", "Select independent Variable", choices = c("Reviews", "Installs", "Rating", "Size")), 
+                                                selectInput("selectin2", "Select dependent variable", choices = c("Installs", "Reviews", "Rating", "Size"))), 
                                                 box(verbatimTextOutput("table2"), width = 12))
                                                 )),
                 

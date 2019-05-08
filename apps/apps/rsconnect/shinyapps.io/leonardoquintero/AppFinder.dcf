@@ -5,8 +5,8 @@ account: leonardoquintero
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 911049
-bundleId: 2068279
+bundleId: 2070529
 url: https://leonardoquintero.shinyapps.io/AppFinder/
-when: 1557280733.15885
+when: 1557345355.10205
 asMultiple: FALSE
 asStatic: FALSE

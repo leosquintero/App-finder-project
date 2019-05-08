@@ -24,7 +24,8 @@ shinyUI(
                 menuItem("Home", tabName = "Home", icon = icon("home")),
                 menuItem("Dashboard", tabName = "Dashboard", icon = icon("dashboard")),
                 menuItem('charts', tabName = "charts", icon = icon("chart-bar")),
-                menuItem("Data", tabName = "Data", icon = icon("database"))
+                menuItem("Data", tabName = "Data", icon = icon("database")),
+                menuItem("LM", tabName = "tab", icon = icon("table"))
             )),
             
         # boddy ####
@@ -114,7 +115,16 @@ shinyUI(
                                            fluidPage(plotOutput("Plots")))),
                                         tabPanel("Categories bar plots", fluidRow(titlePanel("Barplots grouperd by Category")), 
                                                                                   selectInput("select4", "Select input", choices = c("Reviews", "Installs", "Rating", "Size")),
-                                                 fluidRow(plotOutput("barplot"))))))),
+                                                 fluidRow(plotOutput("barplot"))),
+                                          tabPanel("Areas", fluidRow(titlePanel("Barplots grouperd by Category"), 
+                                                   selectInput("select5", "Select input", choices = c("Reviews", "Installs", "Rating", "Size")),
+                                                   fluidRow(plotOutput("barplot3")))))))),
+                tabItem(tabName = "tab", 
+                        fluidPage(mainPanel(width = 12, 
+                                            box(selectInput("selectin", "Select dependent Variable", choices = c("Reviews", "Installs", "Rating", "Size")), 
+                                                selectInput("selectin2", "Select Independent variable", choices = c("Installs", "Reviews", "Rating", "Size"))), 
+                                                box(verbatimTextOutput("table2"), width = 12))
+                                                )),
                 
                                         
             

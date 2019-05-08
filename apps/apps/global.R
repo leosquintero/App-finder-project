@@ -19,16 +19,9 @@ categories <- psa %>%
 # Defining DF means whit the avg of every numerical column
 means <- psa %>% 
     group_by(Category) %>% 
-    summarise(Rating = mean(Rating), Reviews = mean(Reviews), Installs = mean(Installs), Size = mean(Size))
+    summarise(Rating = mean(Rating), Reviews = round(mean(Reviews)), Installs = round(mean(Installs)), Size = mean(Size))
 
 
 
 
 
-
-
-
-
-
-
- 

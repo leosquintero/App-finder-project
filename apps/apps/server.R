@@ -55,7 +55,7 @@ shinyServer(function(input, output){
     
     # Top 30 apps by Rating
     output$Plots <- renderPlot({
-        means %>% 
+        psa %>% 
             ggplot(aes_string(input$select, input$select2))+
             geom_point() +
             geom_smooth()
@@ -86,7 +86,13 @@ shinyServer(function(input, output){
                  y= 'Variable')+
             coord_flip(expand = TRUE)
             
-            
+    })
+    
+    output$barplot3 <- renderPlot({
+        psa %>% 
+        ggplot(aes_string(input$select5)) +
+        geom_area(stat = "Bin", fill = "skyblue")
+        
     })
     
     # Data page ####
@@ -98,8 +104,11 @@ shinyServer(function(input, output){
     
         
     })
+    output$table2 <- renderPrint({
+        summary(lm(as.formula(paste(input$selectin, "~", paste(input$selectin2,"+", "Category"))), psa, na.action = na.exclude))
+    })
 })
     
-    
+
         
         

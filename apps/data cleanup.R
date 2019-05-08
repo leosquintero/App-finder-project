@@ -24,7 +24,7 @@ psa$Rating[is.na(psa$Rating)] <- 0
 
 # Reviews ####
 # converting reviews column into numeric
-psa['Reviews'] <- as.numeric(psa$Reviews)
+psa['Reviews'] <- round(as.numeric(psa$Reviews))
 
 
 
@@ -35,9 +35,9 @@ psa['Installs'] <- gsub(pattern = "\\,", replacement = "", x = psa$Installs)
 psa['Installs'] <- gsub(pattern = " ", replacement = "", x = psa$Installs)
 
 # converting installs column into numeric
-options("scipen"=100, "digits"=4)
+options("scipen"=100, "digits"=2)
 psa['Installs'] <- as.numeric(psa$Installs)
-psa['Installs'] <- as.integer(psa$Installs)
+psa['Installs'] <- as.integer(round(psa$Installs))
 
 # Applying jitter to Installs column
 psa['Installs'] <- abs(round(jitter(psa$Installs, amount = 10000)))
@@ -46,7 +46,7 @@ psa['Installs'] <- abs(round(jitter(psa$Installs, amount = 10000)))
 # size ####
 # Cleaning up Zise
 psa['Size'] <- gsub(pattern = "M", replacement = "", x = psa$Size)
-psa['Size'] <- as.numeric(psa$Size)
+psa['Size'] <- round(as.numeric(psa$Size))
 
 psa$Size[is.na(psa$Size)] <- 0
 
